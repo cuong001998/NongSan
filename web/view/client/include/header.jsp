@@ -61,7 +61,7 @@
                 <ul class="header__sidebar__right d-flex justify-content-end align-items-center">
                     <li class="shop_search"><a class="search__active" href="#"></a></li>
                     <li class="wishlist"><a href="#"></a></li>
-                    <li class="shopcart"><a class="cartbox_active" href="#"><span class="product_qun">3</span></a>
+                    <li class="shopcart"><a class="cartbox_active" href="#"><span class="product_qun">${sessionScope.cart.size()}</span></a>
                         <!-- Start Shopping Cart -->
                         <div class="block-minicart minicart__active">
                             <div class="minicart-content-wrapper">
@@ -69,69 +69,39 @@
                                     <span>close</span>
                                 </div>
                                 <div class="items-total d-flex justify-content-between">
-                                    <span>3 items</span>
+                                    <span>${sessionScope.cart.size()} items</span>
                                     <span>Cart Subtotal</span>
                                 </div>
                                 <div class="total_amount text-right">
-                                    <span>$66.00</span>
+                                    <span>Total money</span>
                                 </div>
                                 <div class="mini_action checkout">
-                                    <a class="checkout__btn" href="cart.html">Go to Checkout</a>
+                                    <a class="checkout__btn" href="/NongSan/view/client/cart.jsp">Go to Checkout</a>
                                 </div>
                                 <div class="single__items">
                                     <div class="miniproduct">
+                                        <c:forEach items="${sessionScope.cart}" var="map">
                                         <div class="item01 d-flex">
                                             <div class="thumb">
-                                                <a href="product-details.html"><img src="/NongSan/static/client/images/product/sm-img/1.jpg" alt="product images"></a>
+                                                <a href="/NongSan/product/detail?productId=${map.value.product.id}"><img src="/NongSan/downloadProduct?filename=${map.value.product.imageName}" alt="product images"></a>
                                             </div>
                                             <div class="content">
-                                                <h6><a href="product-details.html">Voyage Yoga Bag</a></h6>
-                                                <span class="prize">$30.00</span>
+                                                <h6><a href="/NongSan/product/detail?productId=${map.value.product.id}">${map.value.product.name}</a></h6>
+                                                <span class="prize">$${map.value.unitPrice}</span>
                                                 <div class="product_prize d-flex justify-content-between">
-                                                    <span class="qun">Qty: 01</span>
+                                                    <span class="qun">Qty: ${map.value.quantity}</span>
                                                     <ul class="d-flex justify-content-end">
                                                         <li><a href="#"><i class="zmdi zmdi-settings"></i></a></li>
-                                                        <li><a href="#"><i class="zmdi zmdi-delete"></i></a></li>
+                                                        <li><a href="/NongSan/remove_cartitem?key=${map.key}"><i class="zmdi zmdi-delete"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="item01 d-flex mt--20">
-                                            <div class="thumb">
-                                                <a href="product-details.html"><img src="/NongSan/static/client/images/product/sm-img/3.jpg" alt="product images"></a>
-                                            </div>
-                                            <div class="content">
-                                                <h6><a href="product-details.html">Impulse Duffle</a></h6>
-                                                <span class="prize">$40.00</span>
-                                                <div class="product_prize d-flex justify-content-between">
-                                                    <span class="qun">Qty: 03</span>
-                                                    <ul class="d-flex justify-content-end">
-                                                        <li><a href="#"><i class="zmdi zmdi-settings"></i></a></li>
-                                                        <li><a href="#"><i class="zmdi zmdi-delete"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item01 d-flex mt--20">
-                                            <div class="thumb">
-                                                <a href="product-details.html"><img src="/NongSan/static/client/images/product/sm-img/2.jpg" alt="product images"></a>
-                                            </div>
-                                            <div class="content">
-                                                <h6><a href="product-details.html">Compete Track Tote</a></h6>
-                                                <span class="prize">$40.00</span>
-                                                <div class="product_prize d-flex justify-content-between">
-                                                    <span class="qun">Qty: 03</span>
-                                                    <ul class="d-flex justify-content-end">
-                                                        <li><a href="#"><i class="zmdi zmdi-settings"></i></a></li>
-                                                        <li><a href="#"><i class="zmdi zmdi-delete"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        </c:forEach>
                                     </div>
                                 </div>
                                 <div class="mini_action cart">
-                                    <a class="cart__btn" href="cart.html">View and edit cart</a>
+                                    <a class="cart__btn" href="/NongSan/view/client/cart.jsp">View and edit cart</a>
                                 </div>
                             </div>
                         </div>

@@ -5,7 +5,7 @@ public class CartItem {
     
     private int id;
     private int quantity;
-    private int unitPrice;
+    private float unitPrice;
     private Product product;
     private Cart cart;
 
@@ -17,11 +17,11 @@ public class CartItem {
         this.quantity = quantity;
     }
 
-    public int getUnitPrice() {
+    public float getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(int unitPrice) {
+    public void setUnitPrice(float unitPrice) {
         this.unitPrice = unitPrice;
     }
 

@@ -15,7 +15,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.*;
+import model.Product;
+import model.Category;
 
 /**
  *
@@ -31,11 +32,11 @@ public class DetailController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("productId");
         Product product = productData.get(Integer.parseInt(id));
-        Category category = categoryData.getCategory(product.getCategory().getId());
+//        Category category = categoryData.getCategory(product.getCategory().getId());
         List<Product> products = productData.getRelatedProduct(product.getCategory().getId());
         List<Category> categories = categoryData.search("");
         req.setAttribute("product", product);
-        req.setAttribute("category", category);
+//        req.setAttribute("category", category);
         req.setAttribute("products", products);
         req.setAttribute("categories", categories);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/view/client/single_product.jsp");

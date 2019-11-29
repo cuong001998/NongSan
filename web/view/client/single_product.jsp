@@ -105,8 +105,6 @@
                                             </div>
                                         </div>
                                         <!-- End Single Tab Content -->
-                                        <!-- Start Single Tab Content -->
-                                        <!-- End Single Tab Content -->
                                     </div>
                                 </div>
                                 <div class="wn__related__product pt--80 pb--50">
@@ -115,7 +113,7 @@
                                     </div>
                                     <div class="row mt--60">
                                         <div class="productcategory__slide--2 arrows_style owl-carousel owl-theme">
-                                            <c:forEach items="products" var="pro">
+                                            <c:forEach items="${products}" var="pro">
                                             <c:if test="${pro.id != product.id}">
                                             <!-- Start Single Product -->
                                             <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
@@ -161,7 +159,7 @@
                                     <aside class="wedget__categories poroduct--cat">
                                         <h3 class="wedget__title">Categories</h3>
                                         <ul>
-                                            <c:forEach items="categories" var="category">
+                                            <c:forEach items="${categories}" var="category">
                                                 <li><a href="#">${category.name} <span></span></a></li>
                                             
                                             </c:forEach>

@@ -18,7 +18,7 @@ public class CartItemData extends JDBCConnection {
             String sql = "INSERT INTO cart_item(quantity,unitPrice, idProduct,idCart) VALUES(?,?,?,?)";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setInt(1, cartItem.getQuantity());
-            preparedStatement.setInt(2, cartItem.getUnitPrice());
+            preparedStatement.setFloat(2, cartItem.getUnitPrice());
             preparedStatement.setInt(3, cartItem.getProduct().getId());
             preparedStatement.setInt(4, cartItem.getCart().getId());
 

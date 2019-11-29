@@ -81,7 +81,7 @@
                                                 <div class="action">
                                                     <div class="actions_inner">
                                                         <ul class="add_to_links">
-                                                            <li><a class="cart" href="/NongSan/client/add_to_cart?productId=${product.id}"><i class="bi bi-shopping-bag4"></i></a></li>
+                                                            <li><a class="cart" href="/NongSan/add_to_cart?productId=${product.id}"><i class="bi bi-shopping-bag4"></i></a></li>
                               
                                                         </ul>
                                                     </div>
