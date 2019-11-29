@@ -31,13 +31,14 @@ public class AddToCart extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String pId = req.getParameter("productId");
         Product product = productData.get(Integer.parseInt(pId));
-
+        String qty = req.getParameter("qty");
+       // System.out.println("qty la : "+qty);
         HttpSession session = req.getSession();
         Object obj = session.getAttribute("cart");
         if (obj == null) { 
             
             CartItem cartItem = new CartItem();
-            cartItem.setQuantity(1);
+            cartItem.setQuantity((qty==null)?1:Integer.parseInt(qty));
             cartItem.setUnitPrice(product.getPrice());
             cartItem.setProduct(product);
             
@@ -53,14 +54,14 @@ public class AddToCart extends HttpServlet {
             CartItem cartItem = map.get(product.getId());
             if (cartItem == null) {
                 CartItem item = new CartItem();
-
-                item.setQuantity(1);
+                item.setQuantity((qty==null)?1:Integer.parseInt(qty));
+//                item.setQuantity(1);
                 item.setUnitPrice(product.getPrice());
                 item.setProduct(product);
-
                 map.put(product.getId(), item);
             } else {
-                cartItem.setQuantity(cartItem.getQuantity() + 1);
+                cartItem.setQuantity((qty==null)?cartItem.getQuantity()+1:cartItem.getQuantity()+Integer.parseInt(qty));
+                //cartItem.setQuantity(cartItem.getQuantity() + 1);
             }
             // update
             session.setAttribute("cart", map);

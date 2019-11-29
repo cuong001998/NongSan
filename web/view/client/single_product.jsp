@@ -11,20 +11,6 @@
     <body>
             <div class="wrapper" id="wrapper">
             <jsp:include page="/view/client/include/header.jsp"></jsp:include>
-                <div class="box-search-content search_active block-bg close__top">
-                    <form id="search_mini_form" class="minisearch" action="#">
-                        <div class="field__search">
-                            <input type="text" placeholder="Search entire store here...">
-                            <div class="action">
-                                <a href="#"><i class="zmdi zmdi-search"></i></a>
-                            </div>
-                        </div>
-                    </form>
-                    <div class="close__wrap">
-                        <span>close</span>
-                    </div>
-                </div>
-                <!-- End Search Popup -->
                 <!-- Start Bradcaump area -->
                 <div class="ht__bradcaump__area bg-image--4">
                     <div class="container">
@@ -75,12 +61,15 @@
                                                 <div class="price-box">
                                                     <p>${product.weight} g</p>
                                                 </div>
+                                                <form action="/NongSan/add_to_cart" method="get">
                                                 <div class="box-tocart d-flex">
                                                     <span>So Luong</span>
                                                     <input id="qty" class="input-text qty" name="qty" min="1" value="1" title="Qty" type="number">
+                                                    <input type="hidden" name="productId" value="${product.id}"/>
                                                     <div class="addtocart__actions">
                                                         <button class="tocart" type="submit" title="Add to Cart">Them vao gio hang</button>
                                                     </div>
+                                                 </form>
                                                 </div>
                                                 <div class="product_meta">
                                                     <span class="posted_in">Categories: 

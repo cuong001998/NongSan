@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-4 col-sm-4 col-7 col-lg-2">
                 <div class="logo">
-                    <a href="index.html">
+                    <a href="/NongSan/home">
                         <img src="/NongSan/static/client/images/logo/logoBia.png" alt="logo images">
                     </a>
                 </div>
@@ -20,10 +20,10 @@
             <div class="col-lg-8 d-none d-lg-block">
                 <nav class="mainmenu__nav">
                     <ul class="meninmenu d-flex justify-content-start">
-                        <li class="drop with--one--item"><a href="index.html">Home</a></li>
+                        <li class="drop with--one--item"><a href="#">Home</a></li>
 
-                        <li class="drop"><a href="shop-grid.html">Categories</a>
-                            <div class="megamenu mega02">
+                        <li class="drop"><a href="#">About</a>
+<!--                            <div class="megamenu mega02">
                                 <ul class="item item02">
                                     <li class="title">Categories</li>
                                     <li><a href="shop-grid.html">Biography </a></li>
@@ -32,10 +32,10 @@
                                     <li><a href="shop-grid.html">Health & Fitness </a></li>
                                     <li><a href="shop-grid.html">History </a></li>
                                 </ul>
-                            </div>
+                            </div>-->
                         </li>
-                        <li class="drop"><a href="shop-grid.html">Kids</a>
-                            <div class="megamenu mega02">
+                        <li class="drop"><a href="#">Blog</a>
+<!--                            <div class="megamenu mega02">
                                 <ul class="item item02">
                                     <li class="title">Top Collections</li>
                                     <li><a href="shop-grid.html">American Girl</a></li>
@@ -52,7 +52,7 @@
                                     <li><a href="shop-grid.html">Toys & Games</a></li>
                                     <li><a href="shop-grid.html">Hoodies</a></li>
                                 </ul>
-                            </div>
+                            </div>-->
                         </li>
                     </ul>
                 </nav>
@@ -81,22 +81,22 @@
                                 <div class="single__items">
                                     <div class="miniproduct">
                                         <c:forEach items="${sessionScope.cart}" var="map">
-                                        <div class="item01 d-flex">
-                                            <div class="thumb">
-                                                <a href="/NongSan/product/detail?productId=${map.value.product.id}"><img src="/NongSan/downloadProduct?filename=${map.value.product.imageName}" alt="product images"></a>
-                                            </div>
-                                            <div class="content">
-                                                <h6><a href="/NongSan/product/detail?productId=${map.value.product.id}">${map.value.product.name}</a></h6>
-                                                <span class="prize">$${map.value.unitPrice}</span>
-                                                <div class="product_prize d-flex justify-content-between">
-                                                    <span class="qun">Qty: ${map.value.quantity}</span>
-                                                    <ul class="d-flex justify-content-end">
-                                                        <li><a href="#"><i class="zmdi zmdi-settings"></i></a></li>
-                                                        <li><a href="/NongSan/remove_cartitem?key=${map.key}"><i class="zmdi zmdi-delete"></i></a></li>
-                                                    </ul>
+                                            <div class="item01 d-flex">
+                                                <div class="thumb">
+                                                    <a href="/NongSan/product/detail?productId=${map.value.product.id}"><img src="/NongSan/downloadProduct?filename=${map.value.product.imageName}" alt="product images"></a>
+                                                </div>
+                                                <div class="content">
+                                                    <h6><a href="/NongSan/product/detail?productId=${map.value.product.id}">${map.value.product.name}</a></h6>
+                                                    <span class="prize">$${map.value.unitPrice}</span>
+                                                    <div class="product_prize d-flex justify-content-between">
+                                                        <span class="qun">Qty: ${map.value.quantity}</span>
+                                                        <ul class="d-flex justify-content-end">
+                                                            <li><a href="#"><i class="zmdi zmdi-settings"></i></a></li>
+                                                            <li><a href="/NongSan/remove_cartitem?key=${map.key}"><i class="zmdi zmdi-delete"></i></a></li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
                                         </c:forEach>
                                     </div>
                                 </div>
@@ -137,3 +137,17 @@
         <!-- Mobile Menu -->	
     </div>		
 </header>
+                                    
+<div class="box-search-content search_active block-bg close__top">
+    <form action="/NongSan/search" method="post" id="search_mini_form" class="minisearch">
+        <div class="field__search">
+            <input type="text" placeholder="Tim kiem theo ten hoac the loai.." name="userinput">
+            <div class="action">
+                <a href="#"><i class="zmdi zmdi-search"></i></a>
+            </div>
+        </div>
+    </form>
+    <div class="close__wrap">
+        <span>close</span>
+    </div>
+</div>

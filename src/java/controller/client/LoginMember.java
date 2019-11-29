@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -63,7 +63,7 @@ public class LoginMember extends HttpServlet {
         }else{
             req.setAttribute("user", user);
             req.setAttribute("message", message);
-            req.getRequestDispatcher("/view/admin/client_login.jsp").forward(req, resp);
+            req.getRequestDispatcher("/view/client/client_login.jsp").forward(req, resp);
         }
         
        
