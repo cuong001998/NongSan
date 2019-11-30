@@ -16,27 +16,28 @@
                         <div class="row">
                             <div class="col-lg-6 col-12">
                                 <div class="my__account__wrapper">
-                                    <h3 class="account__title">Login</h3>
-                                    <form action="/NongSan/login" method = "post">
-                                        <div class="account__form">
-                                            <div class="input__box">
-                                                <label>Username or email address <span>*</span></label>
-                                                <input type="text" name = "username" value="${user.username}">
+                                    <h3 class="account__title">Register</h3>
+                                    <c:url var="url"  value="/register"/>
+                                     <form action="${url}" method="post">
+                                    <div class="account__form">
+                                        <div class="input__box">
+                                            <label>First name <span>*</span></label>
+                                            <input type="text" name="name" value="${user.name}">
                                             <i>${message[0]}</i>
                                         </div>
                                         <div class="input__box">
+                                            <label>Username <span>*</span></label>
+                                            <input type="text" name="username" value="${user.username}">
+                                            <i>${message[1]}</i><i>${message[3]}</i>
+                                        </div>
+                                        <div class="input__box">
                                             <label>Password<span>*</span></label>
-                                            <input type="password" name= "password"  value="${user.password}">
-                                            <i>${message[1]}</i>
+                                            <input type="password" name="password" value="${user.password}">
+                                            <i>${message[2]}<i>
                                         </div>
                                         <div class="form__btn">
-                                            <button>Login</button>
-                                            <label class="label-for-checkbox">
-                                                <input id="rememberme" class="input-checkbox" name="rememberme" value="forever" type="checkbox">
-                                                <span>Remember me</span>
-                                            </label>
+                                            <button>Register</button>
                                         </div>
-                                        <a class="forget_pass" href="#">Lost your password?</a>
                                     </div>
                                 </form>
                             </div>
@@ -44,9 +45,6 @@
                     </div>
                 </div>
             </section>
-            <!-- End My Account Area -->
-
-            
             </div>
         <jsp:include page="/view/client/include/js.jsp"></jsp:include>
     </body>

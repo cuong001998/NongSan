@@ -111,15 +111,21 @@
                         <div class="searchbar__content setting__block">
                             <div class="content-inner">
                                 <div class="switcher-currency">
-                                    <strong class="label switcher-label">
-                                        <span>My Account</span>
+                                    <strong class="lAccountabel switcher-label">
+                                        <c:if test="${loginMember!=null}">
+                                            <span>Xin chao, ${loginMember.username}</span>
+                                        </c:if>
                                     </strong>
                                     <div class="switcher-options">
                                         <div class="switcher-currency-trigger">
                                             <div class="setting__menu">
-                                                <span><a href="#">Sign In</a></span>
-                                                <span><a href="#">Log out</a></span>
-                                                <span><a href="#">Create An Account</a></span>
+                                                <c:choose>
+                                                    <c:when test="${loginMember==null}">
+                                                        <span><a href="/NongSan/login">Sign In</a></span>
+                                                    </c:when>
+                                                </c:choose>
+                                                <span><a href="/NongSan/signout">Log out</a></span>
+                                                <span><a href="/NongSan/register">Create An Account</a></span>
                                             </div>
                                         </div>
                                     </div>

@@ -160,5 +160,28 @@ public class UserData extends JDBCConnection {
         }
         return null;
     }
+    
+    public boolean checkUsername(String username) {
+        String sql = "SELECT * FROM user WHERE username = ?";
+        Connection conn = super.getConnection();
+        boolean check = false;
+        try {
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setString(1, username);
+            ResultSet rs = preparedStatement.executeQuery();
+            if(rs.next()){
+                check= true;
+            }
+        } catch (Exception e) {
+            System.out.println("loi o getuser" + e);
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return check;
+    }
 
 }

@@ -149,7 +149,7 @@
                                         <h3 class="wedget__title">Categories</h3>
                                         <ul>
                                             <c:forEach items="${categories}" var="category">
-                                                <li><a href="#">${category.name} <span></span></a></li>
+                                                <li><a href="/NongSan/products_by_category?cid=${category.id}">${category.name} <span></span></a></li>
                                             
                                             </c:forEach>
                                         </ul>

@@ -12,7 +12,6 @@
         <jsp:include page="/view/client/include/css.jsp"></jsp:include>
     </head>
     <body>
-
         <!-- Main wrapper -->
         <div class="wrapper" id="wrapper">
 
@@ -23,7 +22,6 @@
             <!-- End Search Popup -->
             <!-- Start Bradcaump area -->
             <div class="ht__bradcaump__area bg-image--6">
-
             </div>
             <!-- End Bradcaump area -->
             <!-- Start Shop Page -->
@@ -36,7 +34,7 @@
                                     <h3 class="wedget__title">Product Categories</h3>
                                     <c:forEach items = "${categories}" var ="category">
                                     <ul>
-        				<li><a href="#">${category.name }</a></li>
+        				<li><a href="/NongSan/products_by_category?cid=${category.id}">${category.name }</a></li>
                                     </ul>
                                     </c:forEach>
                                 </aside>

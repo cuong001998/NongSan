@@ -39,13 +39,13 @@ public class MemberFilter implements Filter {
         Object obj = session.getAttribute("loginMember");
 
         if (obj != null) {
-            User user = (User) obj;
-            if (user.getRole().equals("MEMBER")) {
+           // User user = (User) obj;
+           // if (user.getRole().equals("MEMBER")) {
                 chain.doFilter(request, response);
-            } else {
-                resp.sendRedirect(req.getContextPath() + "/login");
-              
-            }
+//            } else {
+//                resp.sendRedirect(req.getContextPath() + "/login");
+//              
+//            }
         } else {
            
             resp.sendRedirect(req.getContextPath() + "/login");

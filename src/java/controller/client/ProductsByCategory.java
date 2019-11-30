@@ -22,19 +22,22 @@ import model.Product;
  *
  * @author NGUYEN NGOC CUONG
  */
-@WebServlet(urlPatterns = "/home")
-public class HomeController extends HttpServlet {
+@WebServlet(urlPatterns = "/products_by_category")
+public class ProductsByCategory extends HttpServlet {
     
     ProductData productData = new ProductData();
     CategoryData categoryData = new CategoryData();
     
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {        
-        List<Product> products = productData.search("");
-        req.setAttribute("products", products);
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String cid = req.getParameter("cid");
+        List<Product> products = productData.getRelatedProduct(Integer.parseInt(cid));
         List<Category> categories = categoryData.search("");
         req.setAttribute("categories", categories);
+        req.setAttribute("products", products);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/view/client/home.jsp");
         dispatcher.forward(req, resp);
     }
+    
+    
 }

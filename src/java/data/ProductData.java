@@ -136,7 +136,6 @@ public class ProductData extends JDBCConnection {
 
             while (rs.next()) {
                 Category category = categoryData.getCategory(rs.getInt("c_id"));
-
                 Product product = new Product();
                 product.setId(rs.getInt("id"));
                 product.setName(rs.getString("p_name"));
