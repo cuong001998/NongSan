@@ -143,19 +143,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-12 md-mt-40 sm-mt-40">
-                                <div class="shop__sidebar">
-                                    <aside class="wedget__categories poroduct--cat">
-                                        <h3 class="wedget__title">Categories</h3>
-                                        <ul>
-                                            <c:forEach items="${categories}" var="category">
-                                                <li><a href="/NongSan/products_by_category?cid=${category.id}">${category.name} <span></span></a></li>
-                                            
-                                            </c:forEach>
-                                        </ul>
-                                    </aside>
-                                </div>
-                            </div>
+                            <jsp:include page="/view/client/include/sidebar.jsp"></jsp:include>
                         </div>
                     </div>
                 </div>

@@ -22,19 +22,23 @@ import model.Product;
  *
  * @author NGUYEN NGOC CUONG
  */
-@WebServlet(urlPatterns = "/home")
-public class HomeController extends HttpServlet {
+@WebServlet(urlPatterns = "/filterByPrice")
+public class FilterByPrice extends HttpServlet{
     
     ProductData productData = new ProductData();
     CategoryData categoryData = new CategoryData();
     
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {  
-        List<Product> products = productData.search("");
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String minValue = req.getParameter("amount1");
+        String maxValue = req.getParameter("amount2");
+        List<Product> products = productData.getProductByPrice(Float.parseFloat(minValue), Float.parseFloat(maxValue));
         req.setAttribute("products", products);
         List<Category> categories = categoryData.search("");
         req.setAttribute("categories", categories);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/view/client/home.jsp");
         dispatcher.forward(req, resp);
+        
     }
+    
 }

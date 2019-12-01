@@ -478,15 +478,19 @@
 /*====== Price Slider Active ======*/ 
     $('#slider-range').slider({
         range: true,
-        min: 10,
-        max: 500,
-        values: [110, 400],
+        min: 0,
+        max: 100,
+        values: [10, 90],
         slide: function(event, ui) {
             $('#amount').val('$' + ui.values[0] + ' - $' + ui.values[1]);
+            $('#amount1').val( ui.values[0]);
+            $('#amount2').val( ui.values[1]);
         }
     });
     $('#amount').val('$' + $('#slider-range').slider('values', 0) +
         " - $" + $('#slider-range').slider('values', 1));
+    $('#amount1').val($('#slider-range').slider('values', 0));
+    $('#amount2').val($('#slider-range').slider('values', 1));
 
 
 /*====== Dropdown ======*/

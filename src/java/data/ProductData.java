@@ -226,5 +226,37 @@ public class ProductData extends JDBCConnection {
         }
         return products;
     }
+    
+    public List<Product> getProductByPrice(float minVal, float maxVal) {
+        List<Product> products = new ArrayList<>();
+        Connection conn = super.getConnection();
+        try {
+            String sql = "SELECT * FROM product WHERE price BETWEEN ? AND ?";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setFloat(1, minVal);
+            preparedStatement.setFloat(2,maxVal);
+            
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                Product product = new Product();
+                product.setId(rs.getInt("id"));
+                product.setName(rs.getString("name"));
+                product.setPrice(rs.getFloat("price"));
+                product.setWeight(rs.getInt("weight"));
+                product.setImageName(rs.getString("imageName"));
+                product.setDescription(rs.getString("description"));
+                
+                Category category = new Category();
+                category.setId(rs.getInt("category_id"));
+                product.setCategory(category);
+                products.add(product);
+            }
+        } catch (Exception e) {
+            System.out.println("Loi get related product: " + e);
+        } finally {
+
+        }
+        return products;
+    }
 
 }
