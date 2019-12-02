@@ -14,19 +14,7 @@
         <body>
             <div class="container">
                 <jsp:include page="/view/admin/include/header.jsp"></jsp:include>
-                <div class="row">
-
-                    <div class="col-md-3 col-sm-12">
-                    </div>
-                    <div class="col-md-6 col-sm-12">
-                        <input type="text" class="form-control" name="search"  placeholder="nhap ten nguoi dung muon tim">
-                    </div>
-                    <div class="col-md-3 col-sm-12">
-                        <button type="button" class="btn btn-success" href ="#">Tim kiem</button>
-                    </div>
-
-                </div>
-                <br>
+                  <br>
                 <div class ="row">
                     <div class="col-md-3 col-sm-12">
                     <jsp:include page="/view/admin/include/menu.jsp"></jsp:include>							
@@ -41,7 +29,7 @@
                                 <th>UnitPrice</th>
                                 <th>IdProduct</th>
                                 <th>IdCart</th>
-                                <th>Option</th>
+                                
                             </tr>
                             <tr>
                             <c:forEach items="${cartItemList}" var = "cartitem">
@@ -51,10 +39,7 @@
                                 <td>${cartitem.unitPrice }</td>
                                 <td>${cartitem.product.name }</td>
                                 <td>${cartitem.cart.id}</td>
-                                <td>
-                                    <a class="btn btn-success" href="#">Sua</a> |
-                                    <a class="btn btn-danger" href= "#">Xoa</a>
-                                </td>
+                            
                             </tr>
                         </c:forEach>
                     </table>

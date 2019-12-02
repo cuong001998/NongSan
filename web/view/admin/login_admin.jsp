@@ -28,9 +28,6 @@
             <div class="form-group">
                 <button class="form-button" type="submit">Login</button>
             </div>
-            <div class="form-footer">
-                Don't have an account? <a href="#">Sign Up</a>
-            </div>
         </form>
     </div><!--/.wrap-->
     </body>

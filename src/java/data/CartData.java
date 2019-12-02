@@ -17,6 +17,8 @@ import model.User;
  */
 public class CartData extends JDBCConnection {
 
+    UserData userData = new UserData();
+
     public void add(Cart cart) {
         Connection conn = super.getConnection();
         try {
@@ -102,12 +104,12 @@ public class CartData extends JDBCConnection {
                 cart.setBuyDate(rs.getString("buyDate"));
                 cart.setStatus(rs.getInt("status"));
 
-                User user = new User();
-                user.setId(rs.getInt("idBuyer"));
+//                User user = new User();
+                User user = userData.getUser(rs.getInt("idBuyer"));
+//                user.setId(rs.getInt("idBuyer"));
 
                 cart.setBuyer(user);
                 //product.setQuantity(rs.getInt("quantity"));
-
                 return cart;
             }
         } catch (Exception e) {
@@ -131,8 +133,9 @@ public class CartData extends JDBCConnection {
                 cart.setBuyDate(rs.getString("buyDate"));
                 cart.setStatus(rs.getInt("status"));
 
-                User user = new User();
-                user.setId(rs.getInt("idBuyer"));
+                User user = userData.getUser(rs.getInt("idBuyer"));
+//                user.setId(rs.getInt("idBuyer"));
+//                user.setId(rs.getInt("idBuyer"));
 
                 cart.setBuyer(user);
                 carts.add(cart);
@@ -143,6 +146,38 @@ public class CartData extends JDBCConnection {
 
         }
         return carts;
+    }
+
+    public List<Cart> search(String name) {
+        List<Cart> cartList = new ArrayList<Cart>();
+        String sql = "SELECT cart.id, cart.buyDate, cart.idBuyer, cart.status, user.name, user.username, user.id AS user_id "
+                + "FROM cart INNER JOIN user " + "ON cart.idBuyer = user.id WHERE user.name LIKE ? OR user.username LIKE ?";
+      
+        Connection conn = super.getConnection();
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, "%" + name + "%");
+            ps.setString(2, "%" + name + "%");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Cart cart = new Cart();
+                cart.setId(rs.getInt("id"));
+                cart.setBuyDate(rs.getString("buyDate"));
+                cart.setStatus(rs.getInt("status"));
+                 
+                User user = userData.getUser(rs.getInt("idBuyer"));
+                cart.setBuyer(user);
+                
+                cartList.add(cart);
+
+            }
+        } catch (Exception e) {
+            System.out.println("Loi search cart : " + e);
+        } finally {
+
+        }
+        return cartList;
     }
 
 }

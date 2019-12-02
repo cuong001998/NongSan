@@ -16,24 +16,24 @@
      <body>
             <div class="container">
                 <jsp:include page="/view/admin/include/header.jsp"></jsp:include>
-                <div class="row">
-                    <div class="col-md-3 col-sm-12">
-                    </div>
-                    <div class="col-md-6 col-sm-12">
-                        <input type="text" class="form-control" name="search"  placeholder="nhap ten nguoi dung muon tim">
-                    </div>
-                    <div class="col-md-3 col-sm-12">
-                        <button type="button" class="btn btn-success" href ="#">Tim kiem</button>
-                    </div>
-                </div>
+                    <c:url var= "url" value ="/admin/user/search"></c:url>
+                    <form action="${url}" method="post">                       
+                        <div class="row">
+                            <div class="col-md-3 col-sm-12"></div>
+                            <div class="col-md-6 ">
+                                <input type="text" class="form-control" name="search"  placeholder="nhap name hoac username nguoi dung muon tim...">
+                            </div>
+                            <div class="col-md-3">
+                                <button type="submit" class="btn btn-success">Tim kiem</button>
+                            </div>
+                        </div>
+                    </form>
                 <br>
 
                 <div class ="row">
-
                     <div class="col-md-2 col-sm-12">							
                         <jsp:include page="/view/admin/include/menu.jsp"></jsp:include>
                     </div>
-
                     <div class="col-md-10 col-sm-12">
                         <table class="table table-hover">
                             <tr class = "table-header">

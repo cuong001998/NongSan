@@ -31,4 +31,15 @@ public class ProductListController extends HttpServlet {
                 = req.getRequestDispatcher("/view/admin/product_list.jsp");
         dispatcher.forward(req, resp);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String userInput = req.getParameter("search");
+        List<Product> products = productData.search(userInput);
+        req.setAttribute("products", products);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/view/admin/product_list.jsp");
+        dispatcher.forward(req, resp);
+    }
+    
+    
 }

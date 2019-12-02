@@ -32,4 +32,15 @@ public class UserListController extends HttpServlet {
         RequestDispatcher dispatcher = req.getRequestDispatcher("/view/admin/user_list.jsp");
         dispatcher.forward(req, resp);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String userInput = req.getParameter("search");
+        List<User> users = userData.search(userInput);
+        req.setAttribute("userList", users);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/view/admin/user_list.jsp");
+        dispatcher.forward(req, resp);
+    }
+    
+    
 }

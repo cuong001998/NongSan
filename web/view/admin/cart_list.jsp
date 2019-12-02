@@ -10,18 +10,19 @@
     </head>
     <body>
         <div class="container">
-            <div class="row">
-
-                <div class="col-md-3 col-sm-12">
-                </div>
-                <div class="col-md-6 col-sm-12">
-                    <input type="text" class="form-control" name="search"  placeholder="nhap ten nguoi dung muon tim">
-                </div>
-                <div class="col-md-3 col-sm-12">
-                    <button type="button" class="btn btn-success" href ="#">Tim kiem</button>
-                </div>
-
-            </div>
+            <jsp:include page="/view/admin/include/header.jsp"></jsp:include>
+            <c:url var= "url" value ="/admin/cart/search"></c:url>
+                    <form action="${url}" method="post">                       
+                        <div class="row">
+                            <div class="col-md-3 col-sm-12"></div>
+                            <div class="col-md-6 ">
+                                <input type="text" class="form-control" name="search"  placeholder="nhap name hoac username cua user cart muon tim...">
+                            </div>
+                            <div class="col-md-3">
+                                <button type="submit" class="btn btn-success">Tim kiem</button>
+                            </div>
+                        </div>
+                    </form>
             <br>
             <div class ="row">
                 <div class="col-md-3 col-sm-12">
@@ -36,7 +37,7 @@
                             <th>User</th>
                             <th>BuyDate</th>
                             <th>Status</th>
-                            <th>Option</th>
+                          
                         </tr>
                         <tr>
                             <c:forEach items="${cartList}" var = "cart">
@@ -45,10 +46,7 @@
                                 <td>${cart.buyer.name }</td>
                                 <td>${cart.buyDate }</td>
                                 <td>${cart.status }</td>
-                                <td>
-                                    <a class="btn btn-success" href="/Farming/cart/update?cid=${ cart.id}">Sua</a> |
-                                    <a class="btn btn-danger" href= "/Farming/cart/delete?cid=${ carts.id}">Xoa</a>
-                                </td>
+                                
                             </tr>
                         </c:forEach>
                     </table>

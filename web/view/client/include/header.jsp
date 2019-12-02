@@ -20,10 +20,10 @@
             <div class="col-lg-8 d-none d-lg-block">
                 <nav class="mainmenu__nav">
                     <ul class="meninmenu d-flex justify-content-start">
-                        <li class="drop with--one--item"><a href="#">Home</a></li>
+<!--                        <li class="drop with--one--item"><a href="#">Home</a></li>
 
                         <li class="drop"><a href="#">About</a>
-<!--                            <div class="megamenu mega02">
+                            <div class="megamenu mega02">
                                 <ul class="item item02">
                                     <li class="title">Categories</li>
                                     <li><a href="shop-grid.html">Biography </a></li>
@@ -32,10 +32,10 @@
                                     <li><a href="shop-grid.html">Health & Fitness </a></li>
                                     <li><a href="shop-grid.html">History </a></li>
                                 </ul>
-                            </div>-->
+                            </div>
                         </li>
                         <li class="drop"><a href="#">Blog</a>
-<!--                            <div class="megamenu mega02">
+                            <div class="megamenu mega02">
                                 <ul class="item item02">
                                     <li class="title">Top Collections</li>
                                     <li><a href="shop-grid.html">American Girl</a></li>
@@ -52,8 +52,8 @@
                                     <li><a href="shop-grid.html">Toys & Games</a></li>
                                     <li><a href="shop-grid.html">Hoodies</a></li>
                                 </ul>
-                            </div>-->
-                        </li>
+                            </div>
+                        </li>-->
                     </ul>
                 </nav>
             </div>

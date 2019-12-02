@@ -104,12 +104,12 @@ public class UserData extends JDBCConnection {
     public List<User> search(String name) {
         List<User> userLists = new ArrayList<User>();
 
-        String sql = "SELECT * FROM user WHERE username LIKE ?";
+        String sql = "SELECT * FROM user WHERE username = ? OR name LIKE ?";
         Connection conn = super.getConnection();
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
-            preparedStatement.setString(1, "%" + name + "%");
-
+            preparedStatement.setString(1, name);
+             preparedStatement.setString(2, "%" + name + "%");
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 User user = new User();
@@ -138,7 +138,6 @@ public class UserData extends JDBCConnection {
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1, username);
-
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 User user = new User();

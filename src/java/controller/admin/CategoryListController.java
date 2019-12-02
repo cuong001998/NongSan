@@ -34,4 +34,12 @@ public class CategoryListController extends HttpServlet {
         dispatcher.forward(req, resp);
     }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String userInput = req.getParameter("search");
+        List<Category> categories = categoryData.search(userInput);
+        req.setAttribute("categoryList", categories);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/view/admin/category_list.jsp");
+        dispatcher.forward(req, resp);
+    }
 }
