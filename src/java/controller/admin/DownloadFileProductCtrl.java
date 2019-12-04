@@ -16,9 +16,9 @@ import org.apache.commons.io.FileUtils;
 public class DownloadFileProductCtrl extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+            
 		String filename = req.getParameter("filename");
-		String location = "F:\\JaVa\\NongSan\\web\\static\\admin\\images\\product";
+                String location = getServletContext().getRealPath("\\static\\admin\\images\\product");
 		File file = new File(location+File.separator+filename);
 		
 		if(file.exists()) {

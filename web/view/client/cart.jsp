@@ -20,12 +20,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="bradcaump__inner text-center">
-                        	<h2 class="bradcaump-title">Shopping Cart</h2>
-                            <nav class="bradcaump-content">
-                              <a class="breadcrumb_item" href="index.html">Home</a>
-                              <span class="brd-separetor">/</span>
-                              <span class="breadcrumb_item active">Shopping Cart</span>
-                            </nav>
+                        	<h2 class="bradcaump-title">Giỏ hàng</h2>
                         </div>
                     </div>
                 </div>
@@ -67,10 +62,8 @@
                         </form> 
                         <div class="cartbox__btn">
                             <ul class="cart__btn__list d-flex flex-wrap flex-md-nowrap flex-lg-nowrap justify-content-between">
-                                <li><a href="#">Coupon Code</a></li>
-                                <li><a href="#">Apply Code</a></li>
-                                <li><a href="#">Update Cart</a></li>
-                                <li><a href="/NongSan/member/pay">Check Out</a></li>
+                                <li><a href="#">Cập nhật giỏ hàng</a></li>
+                                <li><a href="/NongSan/member/pay">Thanh toán</a></li>
                             </ul>
                         </div>
                     </div>

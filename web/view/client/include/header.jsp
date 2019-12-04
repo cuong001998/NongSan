@@ -20,40 +20,7 @@
             <div class="col-lg-8 d-none d-lg-block">
                 <nav class="mainmenu__nav">
                     <ul class="meninmenu d-flex justify-content-start">
-<!--                        <li class="drop with--one--item"><a href="#">Home</a></li>
-
-                        <li class="drop"><a href="#">About</a>
-                            <div class="megamenu mega02">
-                                <ul class="item item02">
-                                    <li class="title">Categories</li>
-                                    <li><a href="shop-grid.html">Biography </a></li>
-                                    <li><a href="shop-grid.html">Business </a></li>
-                                    <li><a href="shop-grid.html">Cookbooks </a></li>
-                                    <li><a href="shop-grid.html">Health & Fitness </a></li>
-                                    <li><a href="shop-grid.html">History </a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="drop"><a href="#">Blog</a>
-                            <div class="megamenu mega02">
-                                <ul class="item item02">
-                                    <li class="title">Top Collections</li>
-                                    <li><a href="shop-grid.html">American Girl</a></li>
-                                    <li><a href="shop-grid.html">Diary Wimpy Kid</a></li>
-                                    <li><a href="shop-grid.html">Finding Dory</a></li>
-                                    <li><a href="shop-grid.html">Harry Potter</a></li>
-                                    <li><a href="shop-grid.html">Land of Stories</a></li>
-                                </ul>
-                                <ul class="item item02">
-                                    <li class="title">More For Kids</li>
-                                    <li><a href="shop-grid.html">B&N Educators</a></li>
-                                    <li><a href="shop-grid.html">B&N Kids' Club</a></li>
-                                    <li><a href="shop-grid.html">Kids' Music</a></li>
-                                    <li><a href="shop-grid.html">Toys & Games</a></li>
-                                    <li><a href="shop-grid.html">Hoodies</a></li>
-                                </ul>
-                            </div>
-                        </li>-->
+                        <li class="drop with--one--item"><a href="/NongSan/home">Home</a></li>
                     </ul>
                 </nav>
             </div>
@@ -91,7 +58,6 @@
                                                     <div class="product_prize d-flex justify-content-between">
                                                         <span class="qun">Qty: ${map.value.quantity}</span>
                                                         <ul class="d-flex justify-content-end">
-                                                            <li><a href="#"><i class="zmdi zmdi-settings"></i></a></li>
                                                             <li><a href="/NongSan/remove_cartitem?key=${map.key}"><i class="zmdi zmdi-delete"></i></a></li>
                                                         </ul>
                                                     </div>
@@ -113,7 +79,7 @@
                                 <div class="switcher-currency">
                                     <strong class="lAccountabel switcher-label">
                                         <c:if test="${loginMember!=null}">
-                                            <span>Xin chao, ${loginMember.username}</span>
+                                            <span>Xin chào, ${loginMember.username}</span>
                                         </c:if>
                                     </strong>
                                     <div class="switcher-options">
@@ -121,11 +87,13 @@
                                             <div class="setting__menu">
                                                 <c:choose>
                                                     <c:when test="${loginMember==null}">
-                                                        <span><a href="/NongSan/login">Sign In</a></span>
+                                                        <span><a href="/NongSan/login">Đăng nhập</a></span>
+                                                        <span><a href="/NongSan/register">Tạo tài khoản</a></span>
                                                     </c:when>
+                                                    <c:otherwise>
+                                                        <span><a href="/NongSan/signout">Đăng xuất</a></span>
+                                                    </c:otherwise>
                                                 </c:choose>
-                                                <span><a href="/NongSan/signout">Log out</a></span>
-                                                <span><a href="/NongSan/register">Create An Account</a></span>
                                             </div>
                                         </div>
                                     </div>
@@ -147,7 +115,7 @@
 <div class="box-search-content search_active block-bg close__top">
     <form action="/NongSan/search" method="post" id="search_mini_form" class="minisearch">
         <div class="field__search">
-            <input type="text" placeholder="Tim kiem theo ten hoac the loai.." name="userinput">
+            <input type="text" placeholder="Tìm kiếm theo tên hoặc thể loại.." name="userinput">
             <div class="action">
                 <a href="#"><i class="zmdi zmdi-search"></i></a>
             </div>
