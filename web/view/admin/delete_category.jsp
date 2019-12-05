@@ -13,7 +13,7 @@
         <title>Delete category</title>
     </head>
     <body>
-        <h1>Are you sure you want to delete this category?</h1>
+        <h1>Are you sure you want to delete this account?</h1>
         <table cellspacing="5" cellpadding="5" border="1">
             <tr>
                 <td>Category Id</td>
@@ -33,7 +33,7 @@
         <form action="${url}" method="post">
             <input type="hidden" name="cid" value="${category.id}" />
             <input type="submit" value="Yes" />
-            <a href="/NongSan/admin/category/search"<button type="button">No</button></a>
+            <a href="/NongSan/admin/category/search"><button type="button">No</button></a>
         </form>
     </body>
 </html>

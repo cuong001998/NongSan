@@ -41,7 +41,7 @@
         <form action="${url}" method="post">
             <input type="hidden" name="uid" value="${user.id}" />
             <input type="submit" value="Yes" />
-            <a href="/NongSan/admin/user/search"<button type="button">No</button></a>
+            <a href="/NongSan/admin/user/search"><button type="button">No</button></a>
         </form>
     </body>
 </html>

@@ -49,7 +49,7 @@
         <form action="${url}" method="post">
             <input type="hidden" name="pid" value="${product.id}" />
             <input type="submit" value="Yes" />
-            <a href="/NongSan/admin/product/search"<button type="button">No</button></a>
+            <a href="/NongSan/admin/product/search"><button type="button">No</button></a>
         </form>
     </body>
 </html>
