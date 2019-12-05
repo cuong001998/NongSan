@@ -35,6 +35,23 @@ public class AddUserController extends HttpServlet {
         String pass = req.getParameter("password");
         String role = req.getParameter("role");
 
+        String[] message = new String[3];
+        String url = "";
+        boolean filled = true;
+
+        if (name.isEmpty()) {
+            message[0] = "You must enter a name for user.";
+            filled = false;
+        }
+        if (username.isEmpty()) {
+            message[1] = "You must enter a username for user.";
+            filled = false;
+        }
+        if (pass.isEmpty()) {
+            message[2] = "You must enter a pass for user.";
+            filled = false;
+        }
+
         User user = new User();
 
         user.setName(name);
@@ -42,9 +59,13 @@ public class AddUserController extends HttpServlet {
         user.setPassword(pass);
         user.setRole(role);
 
-        userData.add(user);
-        // chuyen trang
-
-        resp.sendRedirect(req.getContextPath() + "/admin/user/search");
+        if (filled) {
+            userData.add(user);
+            resp.sendRedirect(req.getContextPath() + "/admin/user/search");
+        } else {
+            req.setAttribute("user", user);
+            req.setAttribute("message", message);
+            req.getRequestDispatcher("/view/admin/add_user.jsp").forward(req, resp);
+        }
     }
 }

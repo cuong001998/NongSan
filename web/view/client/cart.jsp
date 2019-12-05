@@ -32,6 +32,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 ol-lg-12">
+                        <i style="color:red">${message}</i>
                         <form action="#">               
                             <div class="table-content wnro__table table-responsive">
                                 <table id="table">
@@ -51,7 +52,7 @@
                                             <td class="product-thumbnail"><a href="#"><img src="/NongSan/downloadProduct?filename=${map.value.product.imageName }" alt="product img"></a></td>
                                             <td class="product-name"><a href="#">${ map.value.product.name }</a></td>
                                             <td class="product-price"><span class="amount" id="amountId">${map.value.unitPrice }</span></td>
-                                            <td class="product-quantity"><input type="number" id="valueNumber" value="${map.value.quantity}" onchange="clickQty()"></td>
+                                            <td class="product-quantity"><input type="text" readonly id="valueNumber" value="${map.value.quantity}"></td>
                                             <td class="product-subtotal">${map.value.unitPrice * map.value.quantity }</td>
                                             <td class="product-remove"><a href="/NongSan/remove_cartitem?key=${map.key }">X</a></td>
                                        		</tr>
@@ -62,7 +63,7 @@
                         </form> 
                         <div class="cartbox__btn">
                             <ul class="cart__btn__list d-flex flex-wrap flex-md-nowrap flex-lg-nowrap justify-content-between">
-                                <li><a href="#">Cập nhật giỏ hàng</a></li>
+                                <li><a href="/NongSan/home">Cập nhật giỏ hàng</a></li>
                                 <li><a href="/NongSan/member/pay">Thanh toán</a></li>
                             </ul>
                         </div>
@@ -91,26 +92,6 @@
             </div>  
         </div>
         <!-- cart-main-area end -->
-	<script >
-		var table =  document.getElementById("table");
-		var sumVal =0;
-		for(var i=1 ;i<table.rows.length;i++){
-			sumVal= sumVal + parseInt(table.rows[i].cells[4].innerHTML);
-		}
-		//console.log(sumVal);
-		var cartTotal = document.getElementById("totalCart");
-		cartTotal.innerHTML=sumVal;
-		
-		//var totalFinal = document.getElementById("totalFinal");
-		//totalFinal.innerHTML=sumVal+document.getElementById("tax");
-		function clickQty(){
-			var qty = document.getElementById("valueNumber").value;
-			var amo = document.getElementById("amountId").innerHTML;
-			var total =  qty*amo;
-			console.log(total);
-			//cartTotal.innerHTML=total;
-		}
-	</script>
 	<jsp:include page="/view/client/include/footer.jsp"></jsp:include>
 	</div>
 	<jsp:include page="/view/client/include/js.jsp"></jsp:include>

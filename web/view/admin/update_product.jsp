@@ -35,6 +35,7 @@
                             <label for="name" class="col-sm-3 control-label">Name</label>
                             <div class="col-sm-9">
                                 <input type="text"  class="form-control" name="name" value="${product.name}">
+                                <i> ${message[0]}</i>
                             </div>
                         </div> 
                         
@@ -42,7 +43,8 @@
                         <div class="form-group">
                             <label for="name" class="col-sm-3 control-label">Price</label>
                             <div class="col-sm-9">
-                                <input type="text"  class="form-control" name="price" value="${product.price}">       
+                                <input type="text"  class="form-control" name="price" value="${product.price<0?'':product.price}">
+                                <i> ${message[1]}</i>
                             </div>
                         </div>
                         
@@ -50,7 +52,8 @@
                         <div class="form-group">
                             <label for="name" class="col-sm-3 control-label">Weight</label>
                             <div class="col-sm-9">
-                                <input type="text"  class="form-control" name="weight" value="${product.weight}">
+                                <input type="text"  class="form-control" name="weight" value="${product.weight<0?'':product.weight}">
+                                <i> ${message[2]}</i>
                             </div>
                         </div> 
                         
@@ -58,6 +61,7 @@
                             <label for="name" class="col-sm-3 control-label">Description</label>
                             <div class="col-sm-9">
                                 <input type="text"  class="form-control" name="description" value="${product.description}">
+                                <i> ${message[3]}</i>
                             </div>
                         </div> 
                         

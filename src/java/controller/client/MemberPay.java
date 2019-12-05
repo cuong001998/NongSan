@@ -34,19 +34,22 @@ public class MemberPay extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         User loginUser = (User) session.getAttribute("loginMember");
-
-        Cart cart = new Cart();
-        cart.setBuyer(loginUser);
-        cart.setStatus(1);
-        Date now = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
-        cart.setBuyDate(sdf.format(now));
-        cartData.add(cart);
+        
+        String message=null;
         
         Object obj = session.getAttribute("cart");
-        if(obj!=null){
-            Map<Integer, CartItem> map = (Map<Integer, CartItem>) obj;
+        Map<Integer, CartItem> map = (Map<Integer, CartItem>) obj;
+        if(obj!=null && map.size()>0){
+            
+            Cart cart = new Cart();
+            cart.setBuyer(loginUser);
+            Date now = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+            cart.setBuyDate(sdf.format(now));
+            cartData.add(cart);
+            
+//            Map<Integer, CartItem> map = (Map<Integer, CartItem>) obj;
             
             for(Entry<Integer,CartItem> entry:map.entrySet()){
                 CartItem cartItem = entry.getValue();
@@ -54,9 +57,15 @@ public class MemberPay extends HttpServlet {
                 
                 cartItemData.add(cartItem);
             }
+            
+            session.removeAttribute("cart");
+            resp.sendRedirect(req.getContextPath()+"/home");
+        }else{
+            message="Chưa có sản phẩm nào trong giỏ";
+            req.setAttribute("message", message);
+            req.getRequestDispatcher("/view/client/cart.jsp").forward(req, resp);
         }
-        session.removeAttribute("cart");
-        resp.sendRedirect(req.getContextPath()+"/home");
+        
     }
 
 }

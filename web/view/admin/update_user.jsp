@@ -34,8 +34,8 @@
                         <div class="form-group">
                             <label for="name" class="col-sm-3 control-label">Name</label>
                             <div class="col-sm-9">
-                                <input type="text"  class="form-control" name="yourname"
-                                       placeholder="your name" value = "${user.name}">
+                                <input type="text"  class="form-control" name="yourname" value = "${user.name}">
+                                <i>${message[0]}</i>
                             </div>
                         </div> 
                         
@@ -51,8 +51,8 @@
                         <div class="form-group">
                             <label for="name" class="col-sm-3 control-label">Password</label>
                             <div class="col-sm-9">
-                                <input type="text"  class="form-control" name="password"
-                                       placeholder="password" value = "${user.password}">
+                                <input type="text"  class="form-control" name="password" value = "${user.password}">
+                                <i>${message[1]}</i>
                             </div>
                         </div> 
                         

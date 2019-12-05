@@ -16,7 +16,7 @@
                 <h3>Login Form</h3>
                 <p>Login admin</p>
             </div>
-            <!--Email Input-->
+            <!--username Input-->
             <div class="form-group">
                 <input type="text" name="username" class="form-input" placeholder="username">
             </div>

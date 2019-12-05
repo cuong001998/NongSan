@@ -22,12 +22,11 @@ public class CartData extends JDBCConnection {
     public void add(Cart cart) {
         Connection conn = super.getConnection();
         try {
-            String sql = "INSERT INTO cart(idBuyer,buyDate, status) VALUES(?,?,?)";
+            String sql = "INSERT INTO cart(idBuyer,buyDate) VALUES(?,?)";
             PreparedStatement preparedStatement = conn.prepareStatement(sql,
                     Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setInt(1, cart.getBuyer().getId());
             preparedStatement.setString(2, cart.getBuyDate());
-            preparedStatement.setInt(3, cart.getStatus());
 
             preparedStatement.executeUpdate();
 
@@ -92,7 +91,7 @@ public class CartData extends JDBCConnection {
     public Cart getCart(int id) {
         Connection conn = super.getConnection();
         try {
-            String sql = "SELECT c.id AS 'cart_ID', c.idBuyer, c.buyDate, c.status "
+            String sql = "SELECT c.id AS 'cart_ID', c.idBuyer, c.buyDate, "
                     + " FROM cart c INNER JOIN user u ON c.idBuyer = u.id WHERE c.id = ?";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setInt(1, id);
@@ -102,7 +101,6 @@ public class CartData extends JDBCConnection {
                 Cart cart = new Cart();
                 cart.setId(rs.getInt("cart_ID"));
                 cart.setBuyDate(rs.getString("buyDate"));
-                cart.setStatus(rs.getInt("status"));
 
 //                User user = new User();
                 User user = userData.getUser(rs.getInt("idBuyer"));
@@ -131,7 +129,6 @@ public class CartData extends JDBCConnection {
                 Cart cart = new Cart();
                 cart.setId(rs.getInt("id"));
                 cart.setBuyDate(rs.getString("buyDate"));
-                cart.setStatus(rs.getInt("status"));
 
                 User user = userData.getUser(rs.getInt("idBuyer"));
 //                user.setId(rs.getInt("idBuyer"));
@@ -150,7 +147,7 @@ public class CartData extends JDBCConnection {
 
     public List<Cart> search(String name) {
         List<Cart> cartList = new ArrayList<Cart>();
-        String sql = "SELECT cart.id, cart.buyDate, cart.idBuyer, cart.status, user.name, user.username, user.id AS user_id "
+        String sql = "SELECT cart.id, cart.buyDate, cart.idBuyer, user.name, user.username, user.id AS user_id "
                 + "FROM cart INNER JOIN user " + "ON cart.idBuyer = user.id WHERE user.name LIKE ? OR user.username LIKE ?";
       
         Connection conn = super.getConnection();
@@ -164,7 +161,6 @@ public class CartData extends JDBCConnection {
                 Cart cart = new Cart();
                 cart.setId(rs.getInt("id"));
                 cart.setBuyDate(rs.getString("buyDate"));
-                cart.setStatus(rs.getInt("status"));
                  
                 User user = userData.getUser(rs.getInt("idBuyer"));
                 cart.setBuyer(user);

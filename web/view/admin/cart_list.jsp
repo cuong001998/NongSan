@@ -36,7 +36,6 @@
                             <th>ID</th>
                             <th>User</th>
                             <th>BuyDate</th>
-                            <th>Status</th>
                           
                         </tr>
                         <tr>
@@ -44,9 +43,7 @@
                             <tr>
                                 <td>${cart.id }</td>
                                 <td>${cart.buyer.name }</td>
-                                <td>${cart.buyDate }</td>
-                                <td>${cart.status }</td>
-                                
+                                <td>${cart.buyDate }</td>s
                             </tr>
                         </c:forEach>
                     </table>

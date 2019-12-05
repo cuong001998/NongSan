@@ -26,7 +26,8 @@
                         <div class="form-group">
                             <label for="name" class="col-sm-3 control-label">Name</label>
                             <div class="col-sm-9">
-                                <input type="text"  class="form-control" name="yourname" placeholder="your name">
+                                <input type="text"  class="form-control" name="yourname" value="${user.name}">
+                                <i> ${message[0]}</i>
                             </div>
                         </div> 
                         
@@ -34,7 +35,8 @@
                         <div class="form-group">
                             <label for="name" class="col-sm-3 control-label">User name</label>
                             <div class="col-sm-9">
-                                <input type="text"  class="form-control" name="username">       
+                                <input type="text"  class="form-control" name="username" value="${user.username}">
+                                <i> ${message[1]}</i>
                             </div>
                         </div>
                         
@@ -42,7 +44,8 @@
                         <div class="form-group">
                             <label for="name" class="col-sm-3 control-label">Password</label>
                             <div class="col-sm-9">
-                                <input type="text"  class="form-control" name="password" placeholder="password">
+                                <input type="text"  class="form-control" name="password" value="${user.password}">
+                                <i> ${message[2]}</i>
                             </div>
                         </div> 
                         
@@ -50,9 +53,21 @@
                         <div class="form-group">
                             <label for="name" class="col-sm-3 control-label">Role</label>
                             <div class="col-sm-9">
-                            <select name="role" class="form-control">
-                                <option value="MEMBER">MEMBER</option>
-				<option value="ADMIN">ADMIN</option>
+                            <select name="role" class="form-control" value="${user.role}">
+                                <c:choose>
+                                    <c:when test="${user.role=='ADMIN' }">
+                                         <option value="MEMBER">MEMBER</option>
+                                         <option value="ADMIN" selected>ADMIN</option>
+                                     </c:when>
+                                     <c:when test="${user.role=='MEMBER' }">
+                                         <option value="MEMBER" selected>MEMBER</option>
+                                         <option value="ADMIN">ADMIN</option>
+                                     </c:when>
+                                     <c:otherwise>
+                                        <option value="MEMBER">MEMBER</option>
+                                        <option value="ADMIN">ADMIN</option>
+                                     </c:otherwise>
+                                 </c:choose>
                              </select>
                             </div>
                         </div> 

@@ -36,17 +36,36 @@ public class UpdateUserController extends HttpServlet {
         String username = req.getParameter("username");
         String pass = req.getParameter("password");
         String role = req.getParameter("role");
-
+        
+        String[] message = new String[2];
+        boolean filled = true;
+        
+         if (name.isEmpty()) {
+            message[0] = "You must enter a name for the user.";
+            filled = false;
+        }
+        if (pass.isEmpty()) {
+            message[1] = "You must enter a pass for the category.";
+            filled = false;
+        }
+        
         User user = new User();
         user.setId(Integer.parseInt(id));
         user.setName(name);
         user.setUsername(username);
         user.setPassword(pass);
         user.setRole(role);
+        
+        if(filled){
+            userService(user);
+            resp.sendRedirect(req.getContextPath() + "/admin/user/search");
+        }else{
+            req.setAttribute("user", user);
+            req.setAttribute("message", message);
+            req.getRequestDispatcher("/view/admin/update_user.jsp").forward(req, resp);
+        }
 
         // xu ly update
-        userService(user);
-        resp.sendRedirect(req.getContextPath() + "/admin/user/search");
 
     }
 
