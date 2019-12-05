@@ -18,7 +18,7 @@
             <div class="container">
                 <section  class="panel panel-default">
                     <div class="panel-heading"> 
-                        <h3 class="panel-title">add user</h3>
+                        <h3 class="panel-title">Add user</h3>
                     </div> 
                     <div class="panel-body">
                        

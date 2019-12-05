@@ -40,7 +40,7 @@
                                             <div class="product__info__main">
                                                 <h1>${product.name}</h1>
                                                 <div class="price-box">
-                                                    <span>$${product.price}</span>
+                                                    <span>$ ${product.price}</span>
                                                 </div>
                                                 <div class="price-box">
                                                     <p>${product.weight} g</p>

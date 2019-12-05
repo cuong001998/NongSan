@@ -20,10 +20,10 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-12"></div>
                     <div class="col-md-6 ">
-                        <input type="text" class="form-control" name="search"  placeholder="nhap ten hoac the loai muon tim...">
+                        <input type="text" class="form-control" name="search"  placeholder="Enter name or category...">
                     </div>
                     <div class="col-md-3">
-                        <button type="submit" class="btn btn-success">Tim kiem</button>
+                        <button type="submit" class="btn btn-success">Search</button>
                     </div>
                 </div>
             </form>
@@ -57,8 +57,8 @@
                                 <td>${product.category.name}</td>
                                 <td><img style="width:100px" src="/NongSan/downloadProduct?filename=${product.imageName}"></td>
                                 <td>
-                                    <a class="btn btn-success" href="/NongSan/admin/product/update?pid=${product.id}">Sua</a> |
-                                    <a class="btn btn-danger" href= "/NongSan/admin/product/delete?pid=${product.id}">Xoa</a>
+                                    <a class="btn btn-success" href="/NongSan/admin/product/update?pid=${product.id}">Edit</a> |
+                                    <a class="btn btn-danger" href= "/NongSan/admin/product/delete?pid=${product.id}">Delete</a>
                                 </td>
                             </tr>
                         </c:forEach>

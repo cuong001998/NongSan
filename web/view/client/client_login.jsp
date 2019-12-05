@@ -5,7 +5,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>login</title>
+        <title>Đăng nhập</title>
         <jsp:include page="/view/client/include/css.jsp"></jsp:include>
 
         </head>

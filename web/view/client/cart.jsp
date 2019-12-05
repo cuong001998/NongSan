@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="en_US" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>login</title>
 <jsp:include page="/view/client/include/css.jsp"></jsp:include>
 
 </head>
@@ -38,12 +39,12 @@
                                 <table id="table">
                                     <thead>
                                         <tr class="title-top">
-                                            <th class="product-thumbnail">Image</th>
-                                            <th class="product-name">Product</th>
-                                            <th class="product-price">Price</th>
-                                            <th class="product-quantity">Quantity</th>
-                                            <th class="product-subtotal">Total</th>
-                                            <th class="product-remove">Remove</th>
+                                            <th class="product-thumbnail">Hình ảnh</th>
+                                            <th class="product-name">Sản phẩm</th>
+                                            <th class="product-price">Giá</th>
+                                            <th class="product-quantity">Số lượng</th>
+                                            <th class="product-subtotal">Tổng tiền</th>
+                                            <th class="product-remove">Xóa</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -52,8 +53,8 @@
                                             <td class="product-thumbnail"><a href="#"><img src="/NongSan/downloadProduct?filename=${map.value.product.imageName }" alt="product img"></a></td>
                                             <td class="product-name"><a href="#">${ map.value.product.name }</a></td>
                                             <td class="product-price"><span class="amount" id="amountId">${map.value.unitPrice }</span></td>
-                                            <td class="product-quantity"><input type="text" readonly id="valueNumber" value="${map.value.quantity}"></td>
-                                            <td class="product-subtotal">${map.value.unitPrice * map.value.quantity }</td>
+                                            <td class="product-quantity"><input type="number" readonly id="valueNumber" value="${map.value.quantity}"></td>
+                                            <td class="product-subtotal"><fmt:formatNumber value="${map.value.unitPrice * map.value.quantity}" maxFractionDigits="2" /></td>
                                             <td class="product-remove"><a href="/NongSan/remove_cartitem?key=${map.key }">X</a></td>
                                        		</tr>
                                     	</c:forEach>
@@ -74,16 +75,14 @@
                         <div class="cartbox__total__area">
                             <div class="cartbox-total d-flex justify-content-between">
                                 <ul class="cart__total__list">
-                                    <li>Cart total</li>
-                                   <!-- <li>Tax</li> -->
+                                    <li>Tổng tiền giỏ hàng</li>
                                 </ul>
                                 <ul class="cart__total__tk">
                                     <li id="totalCart"></li>
-                                   <!--  <li id ="tax">5000</li>--> 
                                 </ul>
                             </div>
                             <div class="cart__total__amount">
-                                <span>Grand Total</span>
+                                <span></span>
                                 <span id="totalFinal"></span>
                             </div>
                         </div>
@@ -92,6 +91,16 @@
             </div>  
         </div>
         <!-- cart-main-area end -->
+	<script >
+		var table =  document.getElementById("table");
+		var sumVal =0;
+		for(var i=1 ;i<table.rows.length;i++){
+			sumVal= sumVal + parseFloat(table.rows[i].cells[4].innerHTML);
+		}
+		//console.log(sumVal);
+		var cartTotal = document.getElementById("totalCart");
+		cartTotal.innerHTML=sumVal;
+	</script>
 	<jsp:include page="/view/client/include/footer.jsp"></jsp:include>
 	</div>
 	<jsp:include page="/view/client/include/js.jsp"></jsp:include>

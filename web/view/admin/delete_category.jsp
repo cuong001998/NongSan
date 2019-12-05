@@ -13,7 +13,7 @@
         <title>Delete category</title>
     </head>
     <body>
-        <h1>Are you sure you want to delete this account?</h1>
+        <h1>Are you sure you want to delete this category?</h1>
         <table cellspacing="5" cellpadding="5" border="1">
             <tr>
                 <td>Category Id</td>

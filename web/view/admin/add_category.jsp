@@ -16,11 +16,11 @@
 
                 <section class="panel panel-default">
                     <div class="panel-heading"> 
-                        <h3 class="panel-title">Them category</h3> 
+                        <h3 class="panel-title">Add category</h3> 
                     </div> 
                     <div class="panel-body">
                         <div class="form-group">
-                            <label for="name" class="col-sm-3 control-label">Ten</label>
+                            <label for="name" class="col-sm-3 control-label">Name</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="name" id="name" value="${category.name}">
                                 <i> ${message[0]}</i>
@@ -28,7 +28,7 @@
                         </div> <!-- form-group // -->
 
                         <div class="form-group">
-                            <label for="descrip" class="col-sm-3 control-label">Mieu ta</label>
+                            <label for="descrip" class="col-sm-3 control-label">Description</label>
                             <div class="col-sm-9">
                                 <textarea name="description" class="form-control" id="description">${category.description}</textarea>
                                 <i> ${message[1]}</i>
@@ -37,7 +37,7 @@
 
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-9">
-                                <button type="submit" class="btn btn-primary">Them</button>
+                                <button type="submit" class="btn btn-primary">Add</button>
                             </div>
                         </div> <!-- form-group // -->
 

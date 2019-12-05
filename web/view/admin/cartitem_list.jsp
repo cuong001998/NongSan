@@ -7,7 +7,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Insert title here</title>
+        <title>CartItem List</title>
         <jsp:include page="/view/admin/include/css.jsp"></jsp:include>
 
         </head>

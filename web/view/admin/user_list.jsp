@@ -21,10 +21,10 @@
                         <div class="row">
                             <div class="col-md-3 col-sm-12"></div>
                             <div class="col-md-6 ">
-                                <input type="text" class="form-control" name="search"  placeholder="nhap name hoac username nguoi dung muon tim...">
+                                <input type="text" class="form-control" name="search"  placeholder="Enter name or username of user...">
                             </div>
                             <div class="col-md-3">
-                                <button type="submit" class="btn btn-success">Tim kiem</button>
+                                <button type="submit" class="btn btn-success">Search</button>
                             </div>
                         </div>
                     </form>
@@ -53,8 +53,8 @@
                                 <td>${user.password }</td>
                                 <td>${user.role }</td>
                                 <td>
-                                    <a class="btn btn-success" href="/NongSan/admin/user/update?uid=${ user.getId()}">Sua</a> |
-                                    <a class="btn btn-danger" href= "/NongSan/admin/user/delete?uid=${ user.getId()}">Xoa</a>
+                                    <a class="btn btn-success" href="/NongSan/admin/user/update?uid=${ user.getId()}">Edit</a> |
+                                    <a class="btn btn-danger" href= "/NongSan/admin/user/delete?uid=${ user.getId()}">Delete</a>
                                 </td>
                             </tr>
                         </c:forEach>

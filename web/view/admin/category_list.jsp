@@ -20,10 +20,10 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-12"></div>
                     <div class="col-md-6 ">
-                        <input type="text" class="form-control" name="search"  placeholder="nhap ten category muon tim...">
+                        <input type="text" class="form-control" name="search"  placeholder="Enter category name...">
                     </div>
                     <div class="col-md-3">
-                        <button type="submit" class="btn btn-success">Tim kiem</button>
+                        <button type="submit" class="btn btn-success">Search</button>
                     </div>
                 </div>
             </form>
@@ -50,8 +50,8 @@
                                 <td>${category.name }</td>
                                 <td>${category.description }</td>
                                 <td> 
-                                    <a class="btn btn-success" href="/NongSan/admin/category/update?cid=${category.getId() }">Sua</a> |
-                                    <a class="btn btn-danger" href= "/NongSan/admin/category/delete?cid=${category.getId() }">Xoa</a>
+                                    <a class="btn btn-success" href="/NongSan/admin/category/update?cid=${category.getId() }">Edit</a> |
+                                    <a class="btn btn-danger" href= "/NongSan/admin/category/delete?cid=${category.getId() }">Delete</a>
                                 </td>
                             </tr>
                         </c:forEach>

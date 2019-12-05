@@ -5,7 +5,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>login</title>
+        <title>Tạo tài khoản</title>
         <jsp:include page="/view/client/include/css.jsp"></jsp:include>
 
         </head>
@@ -16,27 +16,27 @@
                         <div class="row">
                             <div class="col-lg-6 col-12">
                                 <div class="my__account__wrapper">
-                                    <h3 class="account__title">Register</h3>
+                                    <h3 class="account__title">Tạo tài khoản</h3>
                                     <c:url var="url"  value="/register"/>
                                      <form action="${url}" method="post">
                                     <div class="account__form">
                                         <div class="input__box">
-                                            <label>First name <span>*</span></label>
+                                            <label>Tên của bạn<span>*</span></label>
                                             <input type="text" name="name" value="${user.name}">
                                             <i>${message[0]}</i>
                                         </div>
                                         <div class="input__box">
-                                            <label>Username <span>*</span></label>
+                                            <label>Tên người dùng<span>*</span></label>
                                             <input type="text" name="username" value="${user.username}">
                                             <i>${message[1]}</i><i>${message[3]}</i>
                                         </div>
                                         <div class="input__box">
-                                            <label>Password<span>*</span></label>
+                                            <label>Mật khẩu<span>*</span></label>
                                             <input type="password" name="password" value="${user.password}">
                                             <i>${message[2]}<i>
                                         </div>
                                         <div class="form__btn">
-                                            <button>Register</button>
+                                            <button>Đăng ký</button>
                                         </div>
                                     </div>
                                 </form>

@@ -16,10 +16,10 @@
                         <div class="row">
                             <div class="col-md-3 col-sm-12"></div>
                             <div class="col-md-6 ">
-                                <input type="text" class="form-control" name="search"  placeholder="nhap name hoac username cua user cart muon tim...">
+                                <input type="text" class="form-control" name="search"  placeholder="Enter name or username of cart...">
                             </div>
                             <div class="col-md-3">
-                                <button type="submit" class="btn btn-success">Tim kiem</button>
+                                <button type="submit" class="btn btn-success">Search</button>
                             </div>
                         </div>
                     </form>
@@ -43,7 +43,7 @@
                             <tr>
                                 <td>${cart.id }</td>
                                 <td>${cart.buyer.name }</td>
-                                <td>${cart.buyDate }</td>s
+                                <td>${cart.buyDate }</td>
                             </tr>
                         </c:forEach>
                     </table>

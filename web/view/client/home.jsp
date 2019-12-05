@@ -41,7 +41,7 @@
                                             <div class="product__content content--center">
                                                 <h4><a href="/NongSan/product/detail?productId=${product.id }">${ product.name }</a></h4>
                                                 <ul class="prize d-flex">
-                                                    <li>${product.price} $</li>
+                                                    <li>$ ${product.price}</li>
                                                 </ul>
                                                 <div class="action">
                                                     <div class="actions_inner">
@@ -58,14 +58,6 @@
                                         <!-- End Single Product -->
                                     </c:forEach>
                                 </div>
-
-                                <ul class="wn__pagination">
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
-                                </ul>
                             </div>
 
                             </div>

@@ -20,7 +20,7 @@
             <div class="col-lg-8 d-none d-lg-block">
                 <nav class="mainmenu__nav">
                     <ul class="meninmenu d-flex justify-content-start">
-                        <li class="drop with--one--item"><a href="/NongSan/home">Home</a></li>
+                        <li class="drop with--one--item"><a href="/NongSan/home">Trang chủ</a></li>
                     </ul>
                 </nav>
             </div>
@@ -33,17 +33,13 @@
                         <div class="block-minicart minicart__active">
                             <div class="minicart-content-wrapper">
                                 <div class="micart__close">
-                                    <span>close</span>
-                                </div>
-                                <div class="items-total d-flex justify-content-between">
-                                    <span>${sessionScope.cart.size()} items</span>
-                                    <span>Cart Subtotal</span>
+                                    <span>đóng</span>
                                 </div>
                                 <div class="total_amount text-right">
-                                    <span>Total money</span>
+                                    <span>${sessionScope.cart.size()==null?0:sessionScope.cart.size()} món hàng</span>
                                 </div>
                                 <div class="mini_action checkout">
-                                    <a class="checkout__btn" href="/NongSan/view/client/cart.jsp">Go to Checkout</a>
+                                    <a class="checkout__btn" href="/NongSan/view/client/cart.jsp">Thanh toán</a>
                                 </div>
                                 <div class="single__items">
                                     <div class="miniproduct">
@@ -54,9 +50,9 @@
                                                 </div>
                                                 <div class="content">
                                                     <h6><a href="/NongSan/product/detail?productId=${map.value.product.id}">${map.value.product.name}</a></h6>
-                                                    <span class="prize">$${map.value.unitPrice}</span>
+                                                    <span class="prize">$ ${map.value.unitPrice}</span>
                                                     <div class="product_prize d-flex justify-content-between">
-                                                        <span class="qun">Qty: ${map.value.quantity}</span>
+                                                        <span class="qun">Số lượng: ${map.value.quantity}</span>
                                                         <ul class="d-flex justify-content-end">
                                                             <li><a href="/NongSan/remove_cartitem?key=${map.key}"><i class="zmdi zmdi-delete"></i></a></li>
                                                         </ul>
@@ -67,7 +63,7 @@
                                     </div>
                                 </div>
                                 <div class="mini_action cart">
-                                    <a class="cart__btn" href="/NongSan/view/client/cart.jsp">View and edit cart</a>
+                                    <a class="cart__btn" href="/NongSan/view/client/cart.jsp">Xem và sửa giỏ hàng</a>
                                 </div>
                             </div>
                         </div>
@@ -79,7 +75,7 @@
                                 <div class="switcher-currency">
                                     <strong class="lAccountabel switcher-label">
                                         <c:if test="${loginMember!=null}">
-                                            <span>Xin chào, ${loginMember.username}</span>
+                                            <span>Xin chào, ${loginMember.name} (${loginMember.username})</span>
                                         </c:if>
                                     </strong>
                                     <div class="switcher-options">
@@ -122,6 +118,6 @@
         </div>
     </form>
     <div class="close__wrap">
-        <span>close</span>
+        <span>đóng</span>
     </div>
 </div>
